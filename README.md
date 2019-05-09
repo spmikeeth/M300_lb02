@@ -42,7 +42,7 @@ Ich habe einen Apache und einen PHP Container sowie einen MySql Container kombin
 Die Umgebung umfasst eine Webapplikation (Apache), eine PHP Applikation und eine SQL Applikation. Per PHP wird dann auf die Datenbank connected. 
 Ich habe den Port der Webapplikation weitergeleitet um ein wenig Sicherheit zu schaffen. Zudem ist diese Applikation von aussen nicht erreichbar. Der Server auf dem diese Applikationen Läuft ist Passwortgeschützt und auch nicht von aussen erreichbar. Dies könnte man jedoch mithilfe einer Firewall ändern. Der Server hat ein aktuelles Ubuntu insttalliert und wird regelmässig geupdated. Mit diesen Massnahmen erhöhe ich die SIcherheit dieses Systemes.
 
-#Funktionsweise Tests
+## Funktionsweise Tests
 
 | Testfall                        | Resultat                                                         |
 |---------------------------------|------------------------------------------------------------------|
