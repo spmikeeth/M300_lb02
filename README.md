@@ -14,77 +14,40 @@ Ich habe einen Apache und einen PHP Container sowie einen MySql Container kombin
 
 ## Kennt die DOckerspezifischen Befehle
 
-Standard-Test:
-```Shell
-    $ docker run hello-world
-```
-
-Startet einen Container mit einer interaktiven Shell (interactive, tty):
-```Shell
-    $ docker run -it ubuntu /bin/bash
-```
-
-**docker ps** <br>
-* Gibt einen Überblick über die aktuellen Container, wie z.B. Namen, IDs und Status.
-
-Aktive Container anzeigen:
-```Shell
-    $ docker ps
-```
-
-Aktive und beendete Container anzeigen (all):
-```Shell
-    $ docker ps -a
-```
-
-Nur IDs ausgeben (all, quit):
-```Shell
-    $ docker ps -a -q
-```
-
-**docker images** <br>
-* Gibt eine Liste lokaler Images aus, wobei Informationen zu Repository-Namen, Tag-Namen und Grösse enthalten sind.
-
-Lokale Images ausgeben:
-```Shell
-    $ docker images
-```
-
-Alternativ auch mit `... image ls`:
-```Shell
-    $ docker image ls
-```
-
-**docker rm und docker rmi** <br>
-* `docker rm`
-    *  Entfernt einen oder mehrere Container. Gibt die Namen oder IDs erfolgreich gelöschter Container zurück.
-* `docker rmi`
-    *  Löscht das oder die angegebenen Images. Diese werden durch ihre ID oder Repository- und Tag-Namen spezifiziert.
-
-Docker Container löschen:
-```Shell
-    $ docker rm [name]
-```
+| Befehl       | Beschreibung                                       |
+| ------------ | -------------------------------------------------- |
+| docker run   | Führt ein Befehl in einem neuen Container aus      |
+| docker start | Startet einen oder mehrere gestoppte Container     |
+| docker stop  | Stoppt einen oder mehrere laufende ontainer        |
+| docker build | Erstellt ein Image aus einem Docker-File           |
+| docker pull  | Ladet ein Image aus der Registry                   |
+| docker push  | Ladet ein Image in die Registry hoch               |
+| docker exec  | Führ einen Befehl in einem laufenden Container aus |
 
 ## Eingerichtete Umgebung Dokumentieren
-    +--------------------+          +---------------------+
-    ! Web Server         !          ! Datenbank Server    !
-    !                    !          !                     !
-    ! IP: 127.0.0.1      ! <------> ! IP:                 !
-    ! Port: 80           !          ! Port 3306           !
-    ! Nat: 8080          !          ! Nat: -              !
-    +--------------------+          +---------------------+
+    +---------------------------------------------------------------+
+    ! Container: Apache Webserver - 127.0.0.1 - 8080                !
+    ! Container: PHP                                                !
+    ! Container: MySQL Datenbank - Hostname: mysql                  !
+    +---------------------------------------------------------------+
+    ! Container-Engine: Docker                                      !
+    +---------------------------------------------------------------+
+    ! Ubuntu VM - VirtualBox                                        !
+    +---------------------------------------------------------------+
+    ! Notebook HP - Schulnetz 10.x.x.x                              !
+    +---------------------------------------------------------------+
 
 Die Umgebung umfasst eine Webapplikation (Apache), eine PHP Applikation und eine SQL Applikation. Per PHP wird dann auf die Datenbank connected. 
 Ich habe den Port der Webapplikation weitergeleitet um ein wenig Sicherheit zu schaffen. Zudem ist diese Applikation von aussen nicht erreichbar. Der Server auf dem diese Applikationen Läuft ist Passwortgeschützt und auch nicht von aussen erreichbar. Dies könnte man jedoch mithilfe einer Firewall ändern. Der Server hat ein aktuelles Ubuntu insttalliert und wird regelmässig geupdated. Mit diesen Massnahmen erhöhe ich die SIcherheit dieses Systemes.
 
 #Funktionsweise Tests
 
-| Testfall                       | Soll                                                                    | Ist                                                                                              |
-|--------------------------------|-------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
-| Docker Container starten       | Der Container startet ohne Probleme                                     | Der Container startete ohne Probleme                                                             |
-| Webseite aufrufen              | Die Webseite wird angezeigt und die Verbidung mit MySQL wird aufgebaut  | Die Webseite wird korrekt angezeigt und auch die Verbindung mit MySQL funktioniert ohne Probleme |
-| Webseite per Terminal aufrufen | Die Webseite bzw die Verbindung mit MySQL wird gezeigt und funktioniert | Die Verbindung mit MySQL wird aufgebaut                                                          |
+| Testfall                        | Resultat                                                         |
+|---------------------------------|------------------------------------------------------------------|
+| Container starten               | Die Container starten ohne Probleme                              |
+| Connection auf SQL              | Die Webseite bzw PHP greift auf die Datenbank zu. Keine Probleme |
+| Webseite öffnen: 127.0.0.1:80   | Die Webseite kann nicht aufgerufen werden. Wie gewollt           |
+| Webseite öffnen: 127.0.0.1:8080 | Die Webseite wird geöffnet                                       |                                             |
 
 # K4
 ## Sicherheitsmassnahmen
