@@ -1,3 +1,5 @@
+# Docker Doku
+
 # K2
 ## Persönlicher Wissensstand
 
@@ -12,7 +14,7 @@
 
 Ich habe einen Apache und einen PHP Container sowie einen MySql Container kombiniert und dann ein paar Änderungen/Einstellungen gemacht.
 
-## Kennt die DOckerspezifischen Befehle
+## Kennt die Dockerspezifischen Befehle
 
 | Befehl       | Beschreibung                                       |
 | ------------ | -------------------------------------------------- |
@@ -53,3 +55,33 @@ Ich habe den Port der Webapplikation weitergeleitet um ein wenig Sicherheit zu s
 ## Sicherheitsmassnahmen
 Ich habe die Lokale Firewall so wenig wie möglich geöffnet. Zudem ist der Server nicht direkt von ausen erreichbar. Die Webseite ist nicht von ausen erreichbar. Der Server verfügt über ein Passwort. Durch diese Massnahmen kann ich sicherstellen, dass keine unbefugten Personen auf den Server bzw. auf die Webseite zugreifen können.
 
+# K5
+
+## Wissenszuwachs
+Nach diesem Modul kenne ich nun Docker. 
+Ich weiss was Docker ist und kann einfache Container erstellen.
+Ich habe gelernt, wie Docker grundsätzlich funktioniert.
+Auch habe ich einiges an Ubuntu Wissen azugelernt da ich wärend dem ganzen Modul mit Ubuntu gearbeitet habe.
+Ich habe Kubernetes ein wenig kennengelernt und ein wenig damit gearbeitet. Kubernetes gefällt mir jedoch nicht so.
+Verglichen zu vorher kenne ich jetzt Docker und weiss was Container sind. Ich weiss wie Container funktionieren und warum man diese braucht. Auch kenne ich nun Kubernetes und weiss wie man damit arbeitet.
+
+## Reflexion
+Das Modul war sehr spannend. Ich habe viel gelernt. 
+Im Modul konnte ich lernen wie Container Funktionieren und wesshalb man diese braucht.
+Es war ein spannendes aber herausvorderndes Modul. 
+Ich habe sicherlich meinen Horizont erweitern können.
+Docker ist ein wichtiges Tool welches ich sicherlich bald benutzen werde.
+
+# K6
+
+## Image-Bereitstellung
+Ich habe versucht ein Image auf Docker bereitzustellen. 
+Dazu wollte ich mich zuerst einloggen was leider nicht funktioniert. Ich war nicht der einzige, der dieses Problem hatte.
+````
+sudo docker login
+````
+Danach würde ich mit diesen Befehlen das Image erstellen und Pushen
+````
+sudo docker image tag docker_apache m300-lb02
+sudo docker push dragonball2211/m300-lb02
+````
